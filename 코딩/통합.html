@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>엔트리와 파이썬 학습 사이트</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #121212;
+            color: white;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .button {
+            background-color: #1D4ED8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #3B82F6;
+        }
+        .tab-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            background-color: #444444;
+            color: white;
+            border: 2px solid #666666;
+            border-radius: 30px;
+            margin: 0 10px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+        .tab-button:hover {
+            background-color: #666666;
+            transform: scale(1.05);
+        }
+        .tab-button.active {
+            background-color: #888888;
+            border-color: #888888;
+        }
+        .tab-content {
+            display: none;
+            text-align: left;
+            padding: 40px;
+            background-color: #222222;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .entry-section:hover {
+            transform: scale(1.02);
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border: none;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 1.2em;
+            color: #4A90E2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-3xl font-bold mb-6">엔트리와 파이썬 학습 사이트</h1>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('entry')">엔트리</button>
+            <button class="tab-button" onclick="openTab('python')">파이썬</button>
+            <button class="tab-button" onclick="openTab('login')">ID 찾기</button>
+        </div>
+
+        <div id="entry" class="tab-content active">
+            <h2>엔트리 학습</h2>
+            <p>엔트리 사이트에 접속하고 기본 항목들을 학습할 수 있습니다.</p>
+            <a href="https://playentry.org/" target="_blank" class="button">엔트리 사이트로 이동</a>
+            <ul class="mt-6 text-left">
+                <li>- 시작: 엔트리 프로젝트 시작 방법</li>
+                <li>- 흐름: 프로젝트의 흐름 설정</li>
+                <li>- 움직임: 객체 이동</li>
+                <li>- 생김새: 객체 외형 설정</li>
+                <li>- 붓: 그리기 기능</li>
+                <li>- 소리: 소리 효과 추가</li>
+                <li>- 판단: 조건문과 결정</li>
+                <li>- 계산: 계산 기능</li>
+                <li>- 자료: 데이터 활용</li>
+            </ul>
+        </div>
+
+        <div id="python" class="tab-content">
+            <h2>파이썬 학습</h2>
+            <p>파이썬의 기본 개념과 다양한 링크들을 통해 실습을 할 수 있습니다.</p>
+            <a href="https://www.learnpython.org/" class="button" target="_blank">파이썬 기초 배우기</a>
+            <a href="https://realpython.com/" class="button" target="_blank">심화 학습</a>
+            <a href="python1.html" class="button">1. 계산 배우기</a>
+            <a href="python2.html" class="button">2. 타입 배우기</a>
+        </div>
+
+        <div id="login" class="tab-content">
+            <h2>엔트리 아이디 검사</h2>
+            <p>공통 비밀번호는 <strong>bd1234</strong>입니다.</p>
+            <input type="text" id="nameInput" placeholder="이름을 입력해 주세요" onkeyup="showMessage()">
+            <div id="result">이름을 입력하면 해당 내용이 표시됩니다.</div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => tab.classList.remove('active'));
+
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => button.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            const activeButton = Array.from(tabButtons).find(button => button.innerText === document.getElementById(tabName).previousElementSibling.innerText);
+            if (activeButton) activeButton.classList.add('active');
+        }
+
+        function showMessage() {
+            const name = document.getElementById("nameInput").value.trim();
+            const resultDiv = document.getElementById("result");
+            const users = {
+                "송민준": "송민준1373 / 964242",
+                "박우승": "박우승13570 / 621843",
+                "육성현": "육성현77373 / 214898",
+                "이채환": "이채환31948 / 224480",
+                "김하람": "김하람28476 / 706587",
+                "이도현": "이도현39857 / 617100",
+                "박시우": "박시우15328 / 112004",
+                "정진우": "정진우87301 / 604747",
+                "정진찬": "정진찬51995 / 215296",
+                "박용현": "박용현49224 / 609521"
+            };
+            resultDiv.textContent = users[name] ? `ID: ${users[name].split(' / ')[0]} Password: ${users[name].split(' / ')[1]}` : "이름을 입력하면 해당 내용이 표시됩니다.";
+        }
+    </script>
+</body>
+</html>
