@@ -115,6 +115,35 @@
         }
         </style>
 
+        <!-- 카톡 버튼 + 비번 + 업데이트 공지 -->
+        <div class="fixed top-4 right-16 z-50 flex items-center space-x-2">
+            <span class="text-sm bg-green-100 text-gray-800 px-2 py-1 rounded shadow">
+                업데이트 공지 : Ver[25.03.31]
+            </span>
+            <span class="text-sm bg-yellow-100 text-gray-800 px-2 py-1 rounded shadow">
+                카카오톡 비번 : 202512
+            </span>
+            <a href="https://open.kakao.com/o/g8TZFToh" target="_blank" title="카카오톡 채팅방으로 이동">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111615.png" 
+                    alt="KakaoTalk" 
+                    class="w-10 h-10 hover:scale-110 transition-transform duration-300 animate-bounce-on-hover">
+            </a>
+        </div>
+
+
+        <style>
+        @keyframes shake {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            50% { transform: rotate(-5deg); }
+            75% { transform: rotate(3deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .animate-bounce-on-hover:hover {
+            animation: shake 0.6s ease-in-out;
+        }
+        </style>
 
         <div id="entry" class="tab-content active">
             <h2>엔트리 학습</h2>
