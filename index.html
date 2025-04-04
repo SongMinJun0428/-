@@ -8,130 +8,77 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Arial', sans-serif;
-            background: #a5dafe;
-            color: rgb(0, 0, 0);
+            font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+            background: linear-gradient(to bottom right, #e0e7ff, #ffffff);
+            color: #1f2937;
         }
         .container {
-            width: 80%;
+            max-width: 960px;
             margin: 50px auto;
+            padding: 0 20px;
             text-align: center;
         }
         .button {
-            background-color: #1D4ED8;
+            background-color: #6366f1;
             color: white;
             padding: 10px 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
-            margin: 10px;
+            margin: 8px;
             display: inline-block;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .button:hover {
-            background-color: #3B82F6;
+            background-color: #4f46e5;
+            transform: translateY(-2px);
         }
         .tab-button {
-            padding: 15px 30px;
-            font-size: 1.2em;
+            padding: 12px 24px;
+            font-size: 1.1em;
             cursor: pointer;
-            background-color: #444444;
-            color: white;
-            border: 2px solid #666666;
-            border-radius: 30px;
-            margin: 0 10px;
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            background-color: #e5e7eb;
+            color: #374151;
+            border: 2px solid #cbd5e1;
+            border-radius: 25px;
+            margin: 0 8px;
+            transition: all 0.3s ease;
         }
         .tab-button:hover {
-            background-color: #666666;
+            background-color: #d1d5db;
             transform: scale(1.05);
         }
         .tab-button.active {
-            background-color: #888888;
-            border-color: #888888;
+            background-color: #6366f1;
+            color: white;
+            border-color: #6366f1;
         }
         .tab-content {
             display: none;
             text-align: left;
-            padding: 40px;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            padding: 32px;
+            background-color: #f9fafb;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            margin-top: 30px;
+            transition: all 0.4s ease;
         }
         .tab-content.active {
             display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .entry-section:hover {
-            transform: scale(1.02);
         }
         input {
             padding: 10px;
             font-size: 16px;
             margin-top: 20px;
             border-radius: 6px;
-            border: none;
+            border: 1px solid #cbd5e1;
+            width: 100%;
         }
         #result {
             margin-top: 15px;
-            font-size: 1.2em;
-            color: #4A90E2;
+            font-size: 1.1em;
+            color: #4f46e5;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1 class="text-3xl font-bold mb-6">엔트리와 파이썬 학습 사이트</h1>
-
-        <div class="tabs">
-            <button class="tab-button active" onclick="openTab('entry')">엔트리</button>
-            <button class="tab-button" onclick="openTab('python')">파이썬</button>
-            <button class="tab-button" onclick="openTab('quiz')">파이썬 문제</button>
-            <button class="tab-button" onclick="openTab('login')">ID 찾기</button>
-        </div>
-
-                <!-- Discord 버튼 -->
-        <div class="fixed top-4 right-4 z-50">
-            <a href="https://discord.gg/MyfYHnwr" target="_blank" title="디스코드 서버로 이동">
-                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" 
-                    alt="Discord" 
-                    class="w-10 h-10 hover:scale-110 transition-transform duration-300 animate-bounce-on-hover">
-            </a>
-        </div>
-
-        <!-- 아래 style 태그를 head나 body 끝에 추가해 주세요 -->
-        <style>
-        @keyframes shake {
-        0% { transform: rotate(0deg); }
-        25% { transform: rotate(5deg); }
-        50% { transform: rotate(-5deg); }
-        75% { transform: rotate(3deg); }
-        100% { transform: rotate(0deg); }
-        }
-
-        .animate-bounce-on-hover:hover {
-        animation: shake 0.6s ease-in-out;
-        }
-        </style>
-
-        <!-- 카톡 버튼 + 비번 + 업데이트 공지 -->
-        <div class="fixed top-4 right-16 z-50 flex items-center space-x-2">
-            <span class="text-sm bg-green-100 text-gray-800 px-2 py-1 rounded shadow">
-                업데이트 공지 : Ver[25.03.31]
-            </span>
-            <span class="text-sm bg-yellow-100 text-gray-800 px-2 py-1 rounded shadow">
-                카카오톡 비번 : 202512
-            </span>
-            <a href="https://open.kakao.com/o/g8TZFToh" target="_blank" title="카카오톡 채팅방으로 이동">
-                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111615.png" 
-                    alt="KakaoTalk" 
-                    class="w-10 h-10 hover:scale-110 transition-transform duration-300 animate-bounce-on-hover">
-            </a>
-        </div>
-
-
-        <style>
         @keyframes shake {
             0% { transform: rotate(0deg); }
             25% { transform: rotate(5deg); }
@@ -139,31 +86,65 @@
             75% { transform: rotate(3deg); }
             100% { transform: rotate(0deg); }
         }
-
         .animate-bounce-on-hover:hover {
             animation: shake 0.6s ease-in-out;
         }
-        </style>
+    </style>
+</head>
+<body>
+  <div class="container mx-auto px-4 py-10 text-center">
+    <h1 class="text-4xl font-bold mb-8 text-blue-900 drop-shadow-lg">엔트리와 파이썬 학습 사이트</h1>
 
-        <div id="entry" class="tab-content active">
-            <h2>엔트리 학습</h2>
-            <p>엔트리 사이트에 접속하고 기본 항목들을 학습할 수 있습니다.</p>
-            <a href="https://playentry.org/" target="_blank" class="button">엔트리 사이트로 이동</a>
-            <ul class="mt-6 text-left">
-                <a href="엔트리 기초.pdf" class="button">ppt</a>
-                <li>- 시작: 엔트리 프로젝트 시작 방법</li>
-                <li>- 흐름: 프로젝트의 흐름 설정</li>
-                <li>- 움직임: 객체 이동</li>
-                <li>- 생김새: 객체 외형 설정</li>
-                <li>- 붓: 그리기 기능</li>
-                <li>- 소리: 소리 효과 추가</li>
-                <li>- 판단: 조건문과 결정</li>
-                <li>- 계산: 계산 기능</li>
-                <li>- 자료: 데이터 활용</li>
-            </ul>
-        </div>
+    <!-- 탭 버튼 -->
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+      <button class="tab-button tab-button active px-6 py-3 rounded-full bg-gray-700 text-white" onclick="openTab('entry')">엔트리</button>
+      <button class="tab-button px-6 py-3 rounded-full bg-gray-700 text-white" onclick="openTab('entryclass')">엔트리 수업 자료</button>
+      <button class="tab-button px-6 py-3 rounded-full bg-gray-700 text-white" onclick="openTab('python')">파이썬</button>
+      <button class="tab-button px-6 py-3 rounded-full bg-gray-700 text-white" onclick="openTab('quiz')">파이썬 문제</button>
+      <button class="tab-button px-6 py-3 rounded-full bg-gray-700 text-white" onclick="openTab('login')">ID 찾기</button>
+    </div>
 
-        <div id="python" class="tab-content">
+    <!-- Discord + Kakao 버튼 -->
+    <div class="fixed top-4 right-4 flex gap-4 z-50">
+      <span class="text-sm bg-green-200 text-gray-800 px-2 py-1 rounded shadow">업데이트 공지: Ver[25.03.31]</span>
+      <span class="text-sm bg-yellow-100 text-gray-800 px-2 py-1 rounded shadow">카카오톡 비번: 202512</span>
+      <a href="https://discord.gg/MyfYHnwr" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" class="w-10 h-10 animate-bounce-on-hover" alt="Discord">
+      </a>
+      <a href="https://open.kakao.com/o/g8TZFToh" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111615.png" class="w-10 h-10 animate-bounce-on-hover" alt="KakaoTalk">
+      </a>
+    </div>
+
+    <!-- 탭 콘텐츠 -->
+    <div id="entry" class="tab-content active bg-white bg-opacity-90 backdrop-blur-md rounded-xl shadow-lg p-8 text-left">
+      <h2 class="text-2xl font-bold mb-4 text-blue-700">엔트리 학습</h2>
+      <p class="mb-4">엔트리 사이트에 접속하고 기본 항목들을 학습할 수 있습니다.</p>
+      <a href="https://playentry.org/" target="_blank" class="inline-block mb-6 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">엔트리 사이트로 이동</a>
+      <ul class="list-disc list-inside space-y-2">
+        <li>- 시작: 엔트리 프로젝트 시작 방법</li>
+        <li>- 흐름: 프로젝트의 흐름 설정</li>
+        <li>- 움직임: 객체 이동</li>
+        <li>- 생김새: 객체 외형 설정</li>
+        <li>- 붓: 그리기 기능</li>
+        <li>- 소리: 소리 효과 추가</li>
+        <li>- 판단: 조건문과 결정</li>
+        <li>- 계산: 계산 기능</li>
+        <li>- 자료: 데이터 활용</li>
+      </ul>
+    </div>
+
+    <div id="entryclass" class="tab-content bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold mb-4 text-blue-700">엔트리 수업 자료</h2>
+      <a href="엔트리 기초.pdf" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">수업자료 1 다운로드</a>
+    </div>
+
+    <div id="quiz" class="tab-content bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold mb-4 text-blue-700">파이썬 문제</h2>
+      <a href="python.hw1.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">1-1. 다이아몬드 출력</a>
+    </div>
+
+    <div id="python" class="tab-content bg-white rounded-xl shadow-lg p-8">
             <h2>파이썬 학습</h2>
             <p>파이썬의 기본 개념과 다양한 링크들을 통해 실습을 할 수 있습니다.</p>
             <a href="https://www.learnpython.org/" class="button" target="_blank">파이썬 기초 배우기</a>
@@ -188,50 +169,40 @@
             
         </div>
 
-        <div id="quiz" class="tab-content">
-            <a href="python.hw1.html" class="button">1-1. </a>
-            </ul>
-        </div>
-        
-
-        <div id="login" class="tab-content">
-            <h2>엔트리 아이디 검사</h2>
-            <p>공통 비밀번호는 <strong>bd1234</strong>입니다.(설정할때)</p>ㄴ
-            <input type="text" id="nameInput" placeholder="이름을 입력해 주세요" onkeyup="showMessage()">
-            <div id="result">이름을 입력하면 해당 내용이 표시됩니다.</div>
-        </div>
+    <div id="login" class="tab-content bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold mb-4 text-blue-700">엔트리 ID 찾기</h2>
+      <p class="mb-2">공통 비밀번호는 <strong>bd1234</strong>입니다. (설정할 때 사용)</p>
+      <input type="text" id="nameInput" placeholder="이름을 입력해 주세요" class="w-full border rounded px-4 py-2 mt-4" onkeyup="showMessage()" />
+      <div id="result" class="mt-4 text-lg text-blue-600">이름을 입력하면 해당 내용이 표시됩니다.</div>
     </div>
+  </div>
 
-    <script>
-        function openTab(tabName) {
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(tab => tab.classList.remove('active'));
+  <script>
+    function openTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabName).classList.add('active');
 
-            const tabButtons = document.querySelectorAll('.tab-button');
-            tabButtons.forEach(button => button.classList.remove('active'));
+      document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active'));
+      event.target.classList.add('active');
+    }
 
-            document.getElementById(tabName).classList.add('active');
-            const activeButton = Array.from(tabButtons).find(button => button.innerText === document.getElementById(tabName).previousElementSibling.innerText);
-            if (activeButton) activeButton.classList.add('active');
-        }
-
-        function showMessage() {
-            const name = document.getElementById("nameInput").value.trim();
-            const resultDiv = document.getElementById("result");
-            const users = {
-                "송민준": "송민준1373 / 964242",
-                "박우승": "박우승13570 / 621843",
-                "육성현": "육성현77373 / 214898",
-                "이채환": "이채환31948 / 224480",
-                "김하람": "김하람28476 / 706587",
-                "이도현": "이도현39857 / 617100",
-                "박시우": "박시우15328 / 112004",
-                "정진우": "정진우87301 / 604747",
-                "정진찬": "정진찬51995 / 215296",
-                "박용현": "박용현49224 / 609521"
-            };
-            resultDiv.textContent = users[name] ? `ID: ${users[name].split(' / ')[0]} Password: ${users[name].split(' / ')[1]}` : "이름을 입력하면 해당 내용이 표시됩니다.";
-        }
-    </script>
+    function showMessage() {
+      const name = document.getElementById("nameInput").value.trim();
+      const resultDiv = document.getElementById("result");
+      const users = {
+        "송민준": "송민준1373 / 964242",
+        "박우승": "박우승13570 / 621843",
+        "육성현": "육성현77373 / 214898",
+        "이채환": "이채환31948 / 224480",
+        "김하람": "김하람28476 / 706587",
+        "이도현": "이도현39857 / 617100",
+        "박시우": "박시우15328 / 112004",
+        "정진우": "정진우87301 / 604747",
+        "정진찬": "정진찬51995 / 215296",
+        "박용현": "박용현49224 / 609521"
+      };
+      resultDiv.textContent = users[name] ? `ID: ${users[name].split(' / ')[0]} Password: ${users[name].split(' / ')[1]}` : "이름을 입력하면 해당 내용이 표시됩니다.";
+    }
+  </script>
 </body>
 </html>
